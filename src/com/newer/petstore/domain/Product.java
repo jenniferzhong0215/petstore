@@ -8,8 +8,10 @@ import java.math.BigDecimal;
  * @author wtao
  *
  */
-public class Product extends BaseEntity {
+public class Product {
 
+	// 编号
+	private int id;
 	// 名称
 	private String title;
 
@@ -28,14 +30,19 @@ public class Product extends BaseEntity {
 	// 图片存储路径
 	private String picPath;
 
-	// 类别（可选）
-	private Category category;
-
 	public Product() {
 	}
 
 	public String getTitle() {
 		return title;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public void setTitle(String title) {
@@ -82,12 +89,12 @@ public class Product extends BaseEntity {
 		this.picPath = picPath;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+	// public Category getCategory() {
+	// return category;
+	// }
+	//
+	// public void setCategory(Category category) {
+	// this.category = category;
+	// }
 
 }

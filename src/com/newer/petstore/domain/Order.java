@@ -19,8 +19,7 @@ public class Order {
 	private int id;
 	// 时间
 	private Date time;
-	// 账号
-	private Account account;
+
 	// 送货地址（如果为空，使用账号的默认地址）
 	private Address address;
 	// 订单项
@@ -45,14 +44,6 @@ public class Order {
 
 	public void setTime(Date time) {
 		this.time = time;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
 	}
 
 	public Address getAddress() {
