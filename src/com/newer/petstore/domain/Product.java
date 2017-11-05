@@ -89,6 +89,12 @@ public class Product {
 		this.picPath = picPath;
 	}
 
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", title=" + title + ", price=" + price + ", info=" + info + ", quantity="
+				+ quantity + ", salesNum=" + salesNum + ", picPath=" + picPath + "]";
+	}
+
 	// public Category getCategory() {
 	// return category;
 	// }

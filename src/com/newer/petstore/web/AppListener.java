@@ -24,7 +24,7 @@ import com.newer.petstore.mapper.CategoryMapper;
  * @author wtao
  *
  */
-@WebListener
+//@WebListener
 public class AppListener implements ServletContextListener {
 
 	private SqlSessionFactory factory;
