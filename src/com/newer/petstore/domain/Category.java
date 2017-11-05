@@ -56,4 +56,9 @@ public class Category {
 		productList.add(product);
 	}
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", title=" + title + "]";
+	}
+
 }
