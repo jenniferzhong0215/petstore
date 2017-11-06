@@ -46,7 +46,8 @@ public class AppListener implements ServletContextListener {
 
 		factory = initSqlSessionFactory(application);
 		application.setAttribute(AppInfo.APP_SESSION_FACTORY, factory);
-
+//		application.removeAttribute(name);
+		
 		loadCategoryList(application);
 
 		loadProductList(application);

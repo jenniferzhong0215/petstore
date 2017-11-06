@@ -1,5 +1,6 @@
 package com.newer.petstore.web;
 
+import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -8,35 +9,39 @@ import com.newer.petstore.AppInfo;
 import com.newer.petstore.domain.Cart;
 
 /**
- * Application Lifecycle Listener implementation class CartListener
+ * 监听器只有一份
+ * 
+ * @author wtao
  *
  */
 @WebListener
 public class CartListener implements HttpSessionListener {
 
-	/**
-	 * Default constructor.
-	 */
-	public CartListener() {
-		// TODO Auto-generated constructor stub
-	}
+	int counter;
 
 	/**
-	 * @see HttpSessionListener#sessionCreated(HttpSessionEvent)
+	 * 创建新的会话（调用很多次）
 	 */
-	public void sessionCreated(HttpSessionEvent se) {
-		// TODO Auto-generated method stub
-
-		// 创建会话的时候、创建一个购物车
+	public void sessionCreated(HttpSessionEvent e) {
+		
+		counter++;
+		System.out.println("创建会话：" + e.getSession().getId());
+		
+		// 存储在线人数
+		e.getSession().getServletContext().setAttribute("online", counter);
+		
+		// 给每个会话分配一个购物车   
 		Cart cart = new Cart();
-		se.getSession().setAttribute(AppInfo.SESSION_CART, cart);
+		e.getSession().setAttribute(AppInfo.SESSION_CART	, cart);
+		
 	}
 
-	/**
-	 * @see HttpSessionListener#sessionDestroyed(HttpSessionEvent)
-	 */
-	public void sessionDestroyed(HttpSessionEvent se) {
-		// TODO Auto-generated method stub
+	public void sessionDestroyed(HttpSessionEvent e) {
+		counter--;
+		
+		System.out.println("会话销毁: " + e.getSession().getId());
+		ServletContext application = e.getSession().getServletContext();
+		application.setAttribute("online", counter);
 	}
 
 }
