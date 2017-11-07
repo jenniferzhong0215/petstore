@@ -3,27 +3,20 @@
 <%@page import="com.newer.petstore.AppInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
-	
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link href="css/master.css" rel="stylesheet">
+
 </head>
 <body>
-
-	<h1>在线人数：${online} <a href="logout">注销</a></h1>
-
-	<%-- 	<%
-		List<Category> list = (List<Category>) application.getAttribute(AppInfo.APP_CATEGORY_LIST);
-		for (Category c : list) {
-	%>
-			<div>编号：<%=c.getId() %>名称：<%=c.getTitle() %></div>
-	<%
-		}
-	%> --%>
+	<%@ include file="header.jsp"%>
 
 	<table>
 		<tr>
@@ -36,25 +29,20 @@
 		</tr>
 
 		<c:forEach items="${products}" var="p">
-		<tr>
-			<td>${p.title }</td>
-			<td>${p.price }</td>
-			<td>${p.quantity }</td>
-			<td>${p.salesNum }</td>
-			<td><img alt="${p.title }" src="${p.picPath }" width="100px" height="100px"></td>
-			<td><a href="cart?id=${p.id }">加入购物车 ajax</a></td>
-		</tr>
+			<tr>
+				<td>${p.title }</td>
+				<td>${p.price }</td>
+				<td>${p.quantity }</td>
+				<td>${p.salesNum }</td>
+				<td><img alt="${p.title }" src="${p.picPath }" width="100px"
+					height="100px"></td>
+				<td><a href="cart?id=${p.id }">加入购物车</a></td>
+			</tr>
 		</c:forEach>
-		
+
 	</table>
 
-
-
-
-
-
-
-
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>

@@ -10,10 +10,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link href="css/master.css" rel="stylesheet">
+
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 
-	<h1>购物车 <a href="index.jsp">继续购物</a></h1>
+	<h1>
+		购物车 <a href="index.jsp">继续购物</a>
+	</h1>
 	<%
 		Cart cart = (Cart) session.getAttribute(AppInfo.SESSION_CART);
 		HashMap<Product, Integer> m = cart.getMap();
@@ -30,16 +36,16 @@
 			for (Product p : products) {
 		%>
 		<tr>
-			<td><%= p.getTitle() %></td>
-			<td><%= p.getPrice() %></td>
-			<td><img alt="" src="<%= p.getPicPath() %>"></td>
-			<td><%= m.get(p) %></td>
+			<td><%=p.getTitle()%></td>
+			<td><%=p.getPrice()%></td>
+			<td><img alt="" src="<%=p.getPicPath()%>"></td>
+			<td><%=m.get(p)%></td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
 
-
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
