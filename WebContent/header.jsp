@@ -9,5 +9,9 @@
 		<c:forEach items="${categories}" var="c">
 			<li>${c.title}</li>
 		</c:forEach>
+		<form action="search" method="GET">
+			<input type="text" name="keyWords" placeholder="请输入关键字" />
+			<input type="submit" value="搜索"/>
+		</form>
 	</menu>
 </header>

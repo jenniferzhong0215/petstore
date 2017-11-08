@@ -15,8 +15,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.newer.petstore.AppInfo;
+import com.newer.petstore.domain.Account;
 import com.newer.petstore.domain.Category;
 import com.newer.petstore.domain.Product;
+import com.newer.petstore.mapper.AccountMapper;
 import com.newer.petstore.mapper.CategoryMapper;
 import com.newer.petstore.mapper.ProductMapper;
 
@@ -60,7 +62,15 @@ public class InitListener implements ServletContextListener {
 		// 加载产品分类信息
 		CategoryMapper categoryMapper = sqlSession.getMapper(CategoryMapper.class);
 		List<Category> categories = categoryMapper.findAll();
+		
 		application.setAttribute(AppInfo.APP_CATEGORY_LIST, categories);
+		
+//		AccountMapper accountMapper = sqlSession.getMapper(AccountMapper.class);
+//		String pw = accountMapper.login("jack");
+//		System.out.println("jack login " + pw);
+//		
+//		pw = accountMapper.login("rose");
+//		System.out.println("rose login " + pw);
 		
 		sqlSession.commit();
 		sqlSession.close();

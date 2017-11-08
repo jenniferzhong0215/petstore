@@ -4,6 +4,11 @@
 	margin: 0;
 }
 
+input {
+	padding: 1em;
+}
+
+
 li {
 	list-style: none;
 	float: left;
