@@ -12,12 +12,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		
+		$('#btnSearch').on('click', function() {
+			
+			$.get(
+					'search',
+					{keyWords:$('#key').val()}, 
+					function(data) {
+						//alert(data);
+						
+						$('table').remove();
+						$('#r').text(data);
+						
+						// DOM
+						// todo list
+					});
+		});
+	});
+</script>
+
 <link href="css/master.css" rel="stylesheet">
 
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-
+	<div id="r"></div>
 	<table>
 		<tr>
 			<th>名称</th>
