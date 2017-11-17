@@ -5,6 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	// 使用 jQuery 发送 ajax post 请求 XMLHttpRequest
+	$(function() {
+		// account 元素失去焦点
+		$('#account').on('blur', function() {
+			// 1）url 2) 数据 3) 回调函数
+			$.post(
+					'checkName.action', 
+					{account:$('#account').val()}, 
+					function(data) {
+						$('#account_hint').text(data);
+					});
+		});
+		// task 2
+		// task 3
+	});
+</script>
+
 <link href="css/master.css" rel="stylesheet">
 <style type="text/css">
 #main {
@@ -64,13 +84,13 @@ form label {
 			<h1>注册</h1>
 			<form action="register.action">
 				<div>
-					<label>用户名</label><input name="account">
+					<label>用户名</label><input id="account" name="account"><span id="account_hint"></span>
 				</div>
 				<div>
-					<label>密码</label><input name="password">
+					<label>密码</label><input id="pw1" name="password" type="password">
 				</div>
 				<div>
-					<label>密码确认</label><input name="password" type="password">
+					<label>密码确认</label><input id="pw2" name="password" type="password">
 				</div>
 				<div>
 					<label></label><input type="submit">
