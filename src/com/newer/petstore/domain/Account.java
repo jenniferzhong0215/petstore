@@ -74,6 +74,15 @@ public class Account {
 	public void setOrderList(List<Order> orderList) {
 		this.orderList = orderList;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", name=" + name + ", password=" + password + "]";
+	}
+
+
 
 	/**
 	 * 账号的地址（内聚）封装

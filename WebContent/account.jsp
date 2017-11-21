@@ -63,17 +63,17 @@ form label {
 
 	<div id="main">
 		<div id="login">
-			<h1>登录</h1>
+			<h1>登录 ${errorMessage}</h1>
 			<form action="login.action">
 				<div>
 					<label>用户名</label>
 					<input name="account" type="text" maxlength="11"
-						placeholder="手机号">
+						placeholder="手机号" required>
 				</div>
 				<div>
 					<label>密码</label>
 					<input name="password" type="password"
-						maxlength="6">
+						maxlength="6" required>
 				</div>
 				<div>
 					<label></label><input type="submit">
@@ -82,15 +82,15 @@ form label {
 		</div>
 		<div id="register">
 			<h1>注册</h1>
-			<form action="register.action">
+			<form action="register.action" method="post">
 				<div>
 					<label>用户名</label><input id="account" name="account"><span id="account_hint"></span>
 				</div>
 				<div>
-					<label>密码</label><input id="pw1" name="password" type="password">
+					<label>密码</label><input id="pw1" name="password" type="password" maxlength="6">
 				</div>
 				<div>
-					<label>密码确认</label><input id="pw2" name="password" type="password">
+					<label>密码确认</label><input id="pw2" name="password" type="password" maxlength="6">
 				</div>
 				<div>
 					<label></label><input type="submit">

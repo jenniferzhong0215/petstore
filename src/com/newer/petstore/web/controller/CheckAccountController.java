@@ -20,19 +20,15 @@ import com.newer.petstore.mapper.AccountMapper;
 public class CheckAccountController implements Controller {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
+	public String execute(HttpServletRequest request, HttpServletResponse response, SqlSession sqlSession)
 			throws ServletException, IOException {
 
 		String account = request.getParameter("account");
 
-		// Spring
-		SqlSessionFactory factory = (SqlSessionFactory) request.getServletContext()
-				.getAttribute(AppInfo.APP_SESSION_FACTORY);
-		SqlSession sqlSession = factory.openSession();
 		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
-		
+
 		String password = mapper.checkName(account);
- 
+
 		return "ajax:" + (password == null ? "可用" : "已占用");
 	}
 

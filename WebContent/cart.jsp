@@ -13,12 +13,34 @@
 
 <link href="css/master.css" rel="stylesheet">
 
+<script type="text/javascript" src="js/jq"></script>
+<script type="text/javascript">
+// init
+$(function() {
+	
+	// 1
+	$('.btn').on('click', function() {
+		$.post('url', {}, function() {
+			
+		});
+	});
+	
+	
+	// 2
+	
+	// 3
+	
+});
+
+</script>
+
+
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 
 	<h1>
-		购物车 <a href="index.jsp">继续购物</a>
+		${account.name} 购物车 <a href="index.jsp">继续购物</a>
 	</h1>
 	<%
 		Cart cart = (Cart) session.getAttribute(AppInfo.SESSION_CART);
@@ -31,6 +53,7 @@
 			<th>单价</th>
 			<th>图片</th>
 			<th>数量</th>
+			<th>操作</th>
 		</tr>
 		<%
 			for (Product p : products) {
@@ -40,6 +63,7 @@
 			<td><%=p.getPrice()%></td>
 			<td><img alt="" src="<%=p.getPicPath()%>"></td>
 			<td><%=m.get(p)%></td>
+			<td><button class="" value="<%=p.getId() %>>">删除</button></td>
 		</tr>
 		<%
 			}
