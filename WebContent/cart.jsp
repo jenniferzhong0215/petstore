@@ -37,6 +37,9 @@ $(function() {
 	
 	
 	// 2
+	$('.productNum').on('blur', function() {
+		alert($(this).val() + ", " + $(this).next().val());
+	});
 	
 	// 3
 	
@@ -72,7 +75,7 @@ $(function() {
 			<td><%=p.getTitle()%></td>
 			<td><%=p.getPrice()%></td>
 			<td><img alt="" src="<%=p.getPicPath()%>"></td>
-			<td><input name="id" value="<%=m.get(p)%>"></td>
+			<td><input class="productNum" value="<%=m.get(p)%>"><input type="hidden" value="<%=p.getId() %>"></td>
 			<td><button class="btn" value="<%=p.getId() %>">删除</button></td>
 		</tr>
 		<%
