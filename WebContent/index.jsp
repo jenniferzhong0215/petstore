@@ -39,7 +39,7 @@
 			var e = $(this);
 			$.post(
 					'cart', 
-					{id:$(this).val()},     
+					{id:$(this).val(),action:'add'},     
 					function(data) {
 						// 给点击的元素增加一个类选择器
 						//e.addClass('buy');

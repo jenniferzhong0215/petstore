@@ -13,16 +13,26 @@
 
 <link href="css/master.css" rel="stylesheet">
 
-<script type="text/javascript" src="js/jq"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript">
 // init
 $(function() {
 	
 	// 1
 	$('.btn').on('click', function() {
-		$.post('url', {}, function() {
-			
-		});
+		// 事件源
+		var e = $(this);
+		$.post(
+				'cart',
+				{id:$(this).val(),action:'delete'}, 
+				function(data) {
+					console.log(data.result);
+					if (data.result == 'ok') {
+						e.parent().parent().remove();
+					}
+				}
+		); 
+		
 	});
 	
 	
@@ -62,8 +72,8 @@ $(function() {
 			<td><%=p.getTitle()%></td>
 			<td><%=p.getPrice()%></td>
 			<td><img alt="" src="<%=p.getPicPath()%>"></td>
-			<td><%=m.get(p)%></td>
-			<td><button class="" value="<%=p.getId() %>>">删除</button></td>
+			<td><input name="" value="<%=m.get(p)%>"></td>
+			<td><button class="btn" value="<%=p.getId() %>">删除</button></td>
 		</tr>
 		<%
 			}

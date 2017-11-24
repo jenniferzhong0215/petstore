@@ -20,16 +20,38 @@ public class Cart {
 
 	public Cart() {
 	}
-	
+
 	// 重载
 	public void addCart(Product product) {
-		addCart(product, 1);
+		if (!map.containsKey(product)) {
+			map.put(product, 1);
+		} else {
+			// 存在
+			map.put(product, map.get(product) + 1);
+		}
 	}
-	
+
 	public void addCart(Product product, int n) {
 		map.put(product, n);
 	}
-	
+
+	/**
+	 * 
+	 * @param product
+	 */
+	public void delete(Product product) {
+		map.remove(product);
+	}
+
+	/**
+	 * 更新
+	 * 
+	 * @param product
+	 * @param n
+	 */
+	public void update(Product product, int n) {
+		map.put(product, n);
+	}
 
 	/**
 	 * 购物车总金额
