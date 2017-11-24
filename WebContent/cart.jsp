@@ -72,7 +72,7 @@ $(function() {
 			<td><%=p.getTitle()%></td>
 			<td><%=p.getPrice()%></td>
 			<td><img alt="" src="<%=p.getPicPath()%>"></td>
-			<td><input name="" value="<%=m.get(p)%>"></td>
+			<td><input name="id" value="<%=m.get(p)%>"></td>
 			<td><button class="btn" value="<%=p.getId() %>">删除</button></td>
 		</tr>
 		<%
