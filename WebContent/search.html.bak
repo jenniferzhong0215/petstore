@@ -7,7 +7,7 @@
 <body>
 	<form action="search" method="GET">
 		<input type="text" name="keyWords" placeholder="请输入关键字" /> <input
-			type="submit" value="查找" />
+			type="submit" value="搜索" />
 	</form>
 </body>
 </html>
