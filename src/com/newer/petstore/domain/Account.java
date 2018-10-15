@@ -1,11 +1,11 @@
-package com.newer.petstore.domain;
+﻿package com.newer.petstore.domain;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 账号
+ * 账号 hhh
  * 
  * @author wtao
  *
